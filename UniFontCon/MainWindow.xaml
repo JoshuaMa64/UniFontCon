@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniFontCon"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Steam昵称装逼小工具" Height="350" Width="525">
     <Grid>
-        
+        <Grid.Resources>
+            <local:FontConverter x:Key="Converter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="cbSelcet" Margin="5">
+            MATHEMATICAL ITALIC 
+        </ComboBox>
+        <Button x:Name="btnCopy" Margin="5" Grid.Column="1" Grid.Row="0" Content="复制到剪贴板" Click="btnCopy_Click"/>
+        <TextBox x:Name="tbPre" Margin="5" FontSize="30" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap"/>
+        <TextBlock x:Name="tbAfter" Margin="5" FontSize="30" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Text, Converter={StaticResource Converter}, ElementName=tbPre}"/>
     </Grid>
 </Window>
